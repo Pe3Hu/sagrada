@@ -5,9 +5,11 @@ class board{
     };
     this.var = {
       generalPurposeID: 0,
+      personalPurpose: 0,
       border: 0
     };
     this.array = {
+      personalPurpose: [],
       generalPurpose: [],
       border: [],
       vitrum: []
@@ -18,10 +20,11 @@ class board{
 
   init(){
     this.initGeneralPurposes();
+    this.initPersonalPurposes();
     this.initBorders();
     this.demo();
 
-    this.array.generalPurpose[5].setVisiable( true );
+    this.array.personalPurpose[10].setVisiable( true );
   }
 
   demo(){
@@ -37,6 +40,7 @@ class board{
       brightness = i;
       this.array.vitrum.push( new vitrum( center, hue, brightness ) );
     }
+
     for( let i = 0; i < 5; i++ ){
       center = createVector( squareSize * ( 10.5 + i * 1.5 ), squareSize );
       hue = i;
@@ -101,7 +105,7 @@ class board{
 
     title = 'Красочные диагноали';
     description = 'Число кубиков одного цвета, соседних по диагноали';
-    price = '#';
+    price = null;
     this.addGeneralPurpose( title, description, price );
 
     title = 'Горизонтальная симметрия';
@@ -141,7 +145,52 @@ class board{
     this.addGeneralPurpose( title, description, price );
   }
 
-  initGame(){
+  addPersonalPurpose( title, description, price ){
+    this.array.personalPurpose.push( new personalPurpose( this.var.personalPurpose, title, description, price ));
+    this.var.personalPurpose++;
+  }
+
+  initPersonalPurposes(){
+    let title, description, price;
+    title = 'Оттенки жёлтого';
+    description = 'Сумматрая яроксть жёлтых кубиков';
+    price = null;
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Оттенки красного';
+    description = 'Сумматрая яроксть красных кубиков';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Оттенки фиолетого';
+    description = 'Сумматрая яроксть фиолетовых кубиков';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Оттенки зелёного';
+    description = 'Сумматрая яроксть зеленых кубиков';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Оттенки синего';
+    description = 'Сумматрая яроксть синих кубиков';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Раскопка';
+    description = 'Суммарная яркость кубиков в указанных зонах';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Скобы';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Забор';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Проём';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Тоннель';
+    this.addPersonalPurpose( title, description, price );
+
+    title = 'Стена';
+    this.addPersonalPurpose( title, description, price );
   }
 
   initBorders(){
@@ -185,5 +234,8 @@ class board{
 
     for( let i = 0; i < this.array.generalPurpose.length; i++ )
       this.array.generalPurpose[i].draw();
+
+    for( let i = 0; i < this.array.personalPurpose.length; i++ )
+      this.array.personalPurpose[i].draw();
   }
 }

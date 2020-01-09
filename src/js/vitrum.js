@@ -50,11 +50,11 @@ class vitrum{
 
   initColors(){
     let bgH = null;
-    let bgS = 360;
+    let bgS = colorMax;
     let bgB = 300;
     let circleH = 0;
     let circleS = 0;
-    let circleB = 360;
+    let circleB = colorMax;
     let bgColor, circleColor;
 
     switch( this.var.hue ) {
@@ -71,19 +71,22 @@ class vitrum{
         bgH = 300;
         break;
       case 4:
-        bgH = 360;
+        bgH = colorMax;
+        break;
+      case 5:
+        bgH = 240;
         break;
       case null:
         bgH = 0;
         bgS = 0;
         bgB = colorMax * ( 8 - this.var.brightness ) / 8;
+        if( this.var.brightness > 3 )
+          circleB = colorMax * 5 / 6;
+        else
+          circleB = colorMax / 6;
         break;
     };
 
-    if( this.var.brightness > 3 )
-      circleB = colorMax * 5 / 6;
-    else
-      circleB = colorMax / 6;
     this.data.circleColor = color( circleH, circleS, circleB );
     this.data.bgColor = color( bgH, bgS, bgB );
   }
