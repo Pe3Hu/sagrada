@@ -16,7 +16,7 @@ class vitrum{
     this.data = {
       bgColor: null,
       circleColor: null
-    }
+    };
 
     this.init();
   }

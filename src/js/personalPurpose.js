@@ -117,7 +117,6 @@ class personalPurpose{
     }
   }
 
-
   initVertexs(){
     let vec = this.var.center.copy();
     let weight = 0.05;

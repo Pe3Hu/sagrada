@@ -5,7 +5,7 @@ let colorBG = colorMax * 2 / 3;
 let infinity = 999999999;
 let fr = 60;
 let font;
-let fontSize = 12;//18
+let fontSize = 16;//18
 let canvasSize;
 let canvasGrid;
 let interfaceBoundaries;

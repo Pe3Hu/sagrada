@@ -1,5 +1,5 @@
 //
-class square{
+class arrow{
   constructor(){
     this.const = {
     };

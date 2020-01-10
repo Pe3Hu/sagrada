@@ -6,13 +6,16 @@ class board{
     this.var = {
       generalPurposeID: 0,
       personalPurpose: 0,
+      instrument: 0,
       border: 0
     };
     this.array = {
       personalPurpose: [],
       generalPurpose: [],
+      instrument: [],
       border: [],
-      vitrum: []
+      vitrum: [],
+      round: []
     };
 
     this.init();
@@ -21,10 +24,12 @@ class board{
   init(){
     this.initGeneralPurposes();
     this.initPersonalPurposes();
+    this.initInstruments();
     this.initBorders();
     this.demo();
 
-    this.array.personalPurpose[10].setVisiable( true );
+    this.array.instrument[0].setVisiable( true );
+    console.log(this.array.instrument[0])
   }
 
   demo(){
@@ -46,6 +51,11 @@ class board{
       hue = i;
       brightness = null;
       this.array.vitrum.push( new vitrum( center, hue, brightness ) );
+    }
+
+    for( let i = 1; i < 10; i++ ){
+      center = createVector( squareSize * ( i ) * 1.5 , squareSize * 2.5 );
+      this.array.round.push( new round( center, i ) );
     }
   }
 
@@ -193,6 +203,89 @@ class board{
     this.addPersonalPurpose( title, description, price );
   }
 
+  addInstrument( title, description, expansion ){
+    this.array.instrument.push( new instrument( this.var.instrument, title, description, expansion ));
+    this.var.instrument++;
+  }
+
+  initInstruments(){
+    let title, description, expansion;
+    title = 'Кусачки для обрезки кромок';
+    description = 'Взяв кубик из резерва уменьшите или увеличьте его яркость на 1 (1 не меняется на 6, а 6 на 1)';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Кисть для эгломизе';
+    description = 'Переместите любой 1 кубик в витраже, игнорируя требования по цвету, но соблюдая все остальные правила размещения кубиков';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Разглаживатель фольги';
+    description = 'Переместите любой 1 кубик в витраже, игнорируя требования по яркости, но соблюдая все остальные правила размещения кубиков';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Прижим';
+    description = 'Переместите ровно 2 кубика, соблюдая все правила размещения кубиков';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Стеклорез';
+    description = 'Взяв кубик из резерва, поменяйте его на любой кубик со счетчика раундов';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Кисточка для флюкса';
+    description = 'Взяв кубик из резерва перебросьте его. Если его нельзя разместить верните его в резерв';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Стекольный молоток';
+    description = 'Перебросьте все кубики в резерве. Можно использовать только на втором ходу текущего раунда перед выбором кубика';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Щипцы для стекла';
+    description = 'После своего первого хода в текущем раунде тут же возьмите кубик из резерва. Пропустите свой второй ход';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Угольник для резки стекла';
+    description = 'Взяв кубик из резерва, поместите его в ячейку, не соседствующую ни с каким другим кубиком, соблюдая все остальные правила размещения кубиков';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Шлифовальный камень';
+    description = 'Взяв кубик из резевра, переверните его на противоположную грань. (6 в 1, 5 в 2, 4 в 3, и т.д.)';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Растворитель флюкса';
+    description = 'Взяв кубик из резерва, верните его в мешочек и достаньте оттуда 1 кубик. Верните его яркость и поместите его на либо на витраж, соблюдая все правила размещения, либо в резерв';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Режущий ролик';
+    description = 'Переместите до 2 одного цвета, совпадающих по цвету с кубиком на счетчике раундов, соблюдая все правила размещения кубиков';
+    expansion = 'basic';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Стеклорез-циркуль';
+    description = 'Взяв кубик из резерва, поменяйте его на любой кубик со своей розы кубиков';
+    expansion = 'second';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Щипцы для свинца';
+    description = 'Перебросьте до 2 кубиков со своей розы кубиков';
+    expansion = 'second';
+    this.addInstrument( title, description, expansion );
+
+    title = 'Быстрорез';
+    description = 'Заберите 1 кубик у любого игрока. Отдайте ему кубик того же цвета или яркости. Он может разместить его, игнорируя требования по цвету и яркости. Можно использовать только до 7-го раунда';
+    expansion = 'third';
+    this.addInstrument( title, description, expansion );
+  }
+
   initBorders(){
   }
 
@@ -222,7 +315,6 @@ class board{
     this.buttonClickCheck();
   }
 
-
   //drawing game frame
   draw(){
     //draw borders
@@ -237,5 +329,11 @@ class board{
 
     for( let i = 0; i < this.array.personalPurpose.length; i++ )
       this.array.personalPurpose[i].draw();
+
+    for( let i = 0; i < this.array.round.length; i++ )
+      this.array.round[i].draw();
+
+    for( let i = 0; i < this.array.instrument.length; i++ )
+      this.array.instrument[i].draw();
   }
 }
