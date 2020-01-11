@@ -7,7 +7,8 @@ class board{
       generalPurposeID: 0,
       personalPurpose: 0,
       instrument: 0,
-      border: 0
+      border: 0,
+      sgw: 0
     };
     this.array = {
       personalPurpose: [],
@@ -15,7 +16,8 @@ class board{
       instrument: [],
       border: [],
       vitrum: [],
-      round: []
+      round: [],
+      sgw: []
     };
 
     this.init();
@@ -26,10 +28,10 @@ class board{
     this.initPersonalPurposes();
     this.initInstruments();
     this.initBorders();
+    this.initSGWs();
     this.demo();
 
-    this.array.instrument[0].setVisiable( true );
-    console.log(this.array.instrument[0])
+    this.array.sgw[5].setVisiable( true );
   }
 
   demo(){
@@ -40,21 +42,21 @@ class board{
     this.array.vitrum.push( new vitrum( center, hue, brightness ) );
 
     for( let i = 1; i < 7; i++ ){
-      center = createVector( squareSize * ( i + 1 ) * 1.5 , squareSize );
+      center = createVector( squareSize * ( i ) * 1.5 , squareSize * 2.5  );
       hue = null;
       brightness = i;
       this.array.vitrum.push( new vitrum( center, hue, brightness ) );
     }
 
     for( let i = 0; i < 5; i++ ){
-      center = createVector( squareSize * ( 10.5 + i * 1.5 ), squareSize );
+      center = createVector( squareSize * ( i + 1 ) * 1.5, squareSize );
       hue = i;
       brightness = null;
       this.array.vitrum.push( new vitrum( center, hue, brightness ) );
     }
 
     for( let i = 1; i < 10; i++ ){
-      center = createVector( squareSize * ( i ) * 1.5 , squareSize * 2.5 );
+      center = createVector( squareSize * ( i ) * 1.5 , squareSize * 4 );
       this.array.round.push( new round( center, i ) );
     }
   }
@@ -203,6 +205,145 @@ class board{
     this.addPersonalPurpose( title, description, price );
   }
 
+  addSGW( titleA, titleB, expansion, complexityA, complexityB ){
+    this.array.sgw.push( new sgw( this.var.sgw, titleA, titleB, expansion, complexityA, complexityB ) );
+    this.var.sgw++;
+  }
+
+  initSGWs(){
+    let titleA, titleB, complexityA, complexityB, expansion;
+    titleA = 'Цветовая капель';
+    titleB = 'Божественный свет';
+    complexityA = 3;
+    complexityB = null;
+    expansion = 'basic';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Батлью';
+    titleB = 'Ловец теней';
+    complexityA = 5;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Благолепие цвета';//
+    titleB = 'Священная заря';
+    complexityA = 4;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Учтивость';
+    titleB = 'Величие рассвета';
+    complexityA = 5;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Достоинство';
+    titleB = 'Доблесть';
+    complexityA = 5;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Небесное сияние';
+    titleB = 'Всположи света';
+    complexityA = 5;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Стойкость';
+    titleB = 'Усердие';
+    complexityA = 5;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Симфония цвета';
+    titleB = 'Живая вода';
+    complexityA = 6;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Пламя свечи';
+    titleB = '';
+    complexityA = 5;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Белъесгуард';
+    titleB = '';
+    complexityA = 3;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Калейдоскопический сон';
+    titleB = '';
+    complexityA = 4;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Аура солнца';
+    titleB = '';
+    complexityA = 6;
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Свет';
+    titleB = 'Шадом';
+    complexityA = 3;
+    complexityB = 6;
+    expansion = 'second';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Cолнце';
+    titleB = 'Природа';
+    expansion = 'second';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Романский стиль';
+    titleB = 'Борокко';
+    expansion = 'second';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Надежда';
+    titleB = 'Радость';
+    expansion = 'second';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Щедрость';
+    titleB = 'Гармония';
+    expansion = 'third';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Солнечный свет';
+    titleB = 'Тьма';
+    expansion = 'third';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Komorebi';
+    titleB = 'Alpenglow';
+    complexityA = 6;
+    complexityB = 6;
+    expansion = 'third';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Бальбоа-Бэй';
+    titleB = 'Классика витража';
+    complexityA = 4;
+    complexityB = 5;
+    expansion = 'third';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Game Boy Geek';
+    titleB = 'Game Boy Geek';
+    complexityA = 6;
+    complexityB = 3;
+    expansion = 'fourth';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Game Boy Geek';
+    titleB = 'Game Boy Geek';
+    expansion = 'fifth';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Man vs Meeple';
+    titleB = 'Man vs Meeple';
+    expansion = 'sixth';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+
+    titleA = 'Intertnational Tabletop Day';
+    titleB = 'Intertnational Tabletop Day';
+    complexityA = 5;
+    expansion = 'seventh';
+    this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
+  }
+
   addInstrument( title, description, expansion ){
     this.array.instrument.push( new instrument( this.var.instrument, title, description, expansion ));
     this.var.instrument++;
@@ -332,6 +473,9 @@ class board{
 
     for( let i = 0; i < this.array.round.length; i++ )
       this.array.round[i].draw();
+
+    for( let i = 0; i < this.array.sgw.length; i++ )
+      this.array.sgw[i].draw();
 
     for( let i = 0; i < this.array.instrument.length; i++ )
       this.array.instrument[i].draw();

@@ -26,6 +26,30 @@ class generalPurpose{
 
   init(){
     this.initVertexs();
+    this.initVitrums();
+  }
+
+  initVertexs(){
+    let vec = this.var.center.copy();
+    let weight = 0.05;
+    vec.x += ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
+    vec.y -= ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
+    this.array.vertex.push( vec.copy() );
+    vec = this.var.center.copy();
+    vec.x += ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
+    vec.y += ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
+    this.array.vertex.push( vec.copy() );
+    vec = this.var.center.copy();
+    vec.x -= ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
+    vec.y += ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
+    this.array.vertex.push( vec.copy() );
+    vec = this.var.center.copy();
+    vec.x -= ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
+    vec.y -= ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
+    this.array.vertex.push( vec.copy() );
+  }
+
+  initVitrums(){
     let center, hue, brightness;
     let grid = false;
     let weight = 0.05;
@@ -61,7 +85,7 @@ class generalPurpose{
         }
       }
 
-      switch ( this.const.index ) {
+    switch ( this.const.index ) {
         case 0:
           center = this.var.center.copy();
           center.x -= 1.5 * squareSize;
@@ -235,26 +259,6 @@ class generalPurpose{
           this.array.vitrum[3][2].setHSB( 4, null );
           break;
       };
-  }
-
-  initVertexs(){
-    let vec = this.var.center.copy();
-    let weight = 0.05;
-    vec.x += ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
-    vec.y -= ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
-    this.array.vertex.push( vec.copy() );
-    vec = this.var.center.copy();
-    vec.x += ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
-    vec.y += ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
-    this.array.vertex.push( vec.copy() );
-    vec = this.var.center.copy();
-    vec.x -= ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
-    vec.y += ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
-    this.array.vertex.push( vec.copy() );
-    vec = this.var.center.copy();
-    vec.x -= ( this.const.m * ( 1 + weight ) / 2 ) * squareSize;
-    vec.y -= ( this.const.n * ( 1 + weight ) / 2 ) * squareSize;
-    this.array.vertex.push( vec.copy() );
   }
 
   setVisiable( visiable ){
