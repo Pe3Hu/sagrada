@@ -31,7 +31,7 @@ class board{
     this.initSGWs();
     this.demo();
 
-    this.array.sgw[5].setVisiable( true );
+    this.array.sgw[11].setVisiable( true );
   }
 
   demo(){
@@ -255,22 +255,22 @@ class board{
     this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
 
     titleA = 'Пламя свечи';
-    titleB = '';
+    titleB = 'Свет звезды';
     complexityA = 5;
     this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
 
     titleA = 'Белъесгуард';
-    titleB = '';
+    titleB = 'Солнечный кристалл';
     complexityA = 3;
     this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
 
     titleA = 'Калейдоскопический сон';
-    titleB = '';
+    titleB = 'Путь света';
     complexityA = 4;
     this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
 
     titleA = 'Аура солнца';
-    titleB = '';
+    titleB = 'Свет мира';
     complexityA = 6;
     this.addSGW( titleA, titleB, expansion, complexityA, complexityB );
 

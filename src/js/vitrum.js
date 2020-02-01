@@ -59,7 +59,7 @@ class vitrum{
 
     switch( this.var.hue ) {
       case 0:
-        bgH = 60;
+        bgH = 55;
         bgB = colorMax;
         break;
       case 1:

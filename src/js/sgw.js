@@ -39,6 +39,18 @@ class sgw{
       this.const.complexityB = this.const.complexityA;
   }
 
+  setSide( side ){
+    switch ( side ) {
+      case 0:
+        this.var.side = 'A';
+        break;
+      case 1:
+        this.var.side = 'B';
+        break;
+    }
+    this.initVitrums();
+  }
+
   initVertexs(){
     let vec = this.var.center.copy();
     let weight = 0.05;
@@ -76,22 +88,7 @@ class sgw{
         this.array.vitrum[i].push( new vitrum( center.copy(), hue, brightness ) );
       }
     }
-    /*
-      case :
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        this.array.vitrum[][].setHSB( null, null );
-        break;
-      */
+
 
     switch ( this.var.side ) {
       case 'A':
@@ -181,9 +178,219 @@ class sgw{
             this.array.vitrum[3][2].setHSB( null, 3 );
             this.array.vitrum[3][3].setHSB( null, 1 );
             break;
+          case 6:
+            this.array.vitrum[0][0].setHSB( 3, null );
+            this.array.vitrum[0][1].setHSB( null, 6 );
+            this.array.vitrum[0][4].setHSB( null, 3 );
+            this.array.vitrum[1][0].setHSB( null, 5 );
+            this.array.vitrum[1][1].setHSB( 3, null );
+            this.array.vitrum[1][2].setHSB( null, 3 );
+            this.array.vitrum[2][1].setHSB( null, 2 );
+            this.array.vitrum[2][2].setHSB( 3, null );
+            this.array.vitrum[2][3].setHSB( null, 1 );
+            this.array.vitrum[3][1].setHSB( null, 1 );
+            this.array.vitrum[3][2].setHSB( null, 5 );
+            this.array.vitrum[3][3].setHSB( 3, null );
+            this.array.vitrum[3][4].setHSB( null, 4 );
+            break;
+          case 7:
+            this.array.vitrum[0][0].setHSB( null, 2 );
+            this.array.vitrum[0][2].setHSB( null, 5 );
+            this.array.vitrum[0][4].setHSB( null, 1 );
+            this.array.vitrum[1][0].setHSB( 0, null );
+            this.array.vitrum[1][1].setHSB( null, 6 );
+            this.array.vitrum[1][2].setHSB( 3, null );
+            this.array.vitrum[1][3].setHSB( null, 2 );
+            this.array.vitrum[1][4].setHSB( 4, null );
+            this.array.vitrum[2][1].setHSB( 2, null );
+            this.array.vitrum[2][2].setHSB( null, 4 );
+            this.array.vitrum[2][3].setHSB( 2, null );
+            this.array.vitrum[3][1].setHSB( null, 3 );
+            this.array.vitrum[3][3].setHSB( null, 5 );
+            break;
+          case 8:
+            this.array.vitrum[0][0].setHSB( null, 3 );
+            this.array.vitrum[0][1].setHSB( null, 4 );
+            this.array.vitrum[0][2].setHSB( null, 1 );
+            this.array.vitrum[0][3].setHSB( null, 5 );
+            this.array.vitrum[1][1].setHSB( null, 6 );
+            this.array.vitrum[1][2].setHSB( null, 2 );
+            this.array.vitrum[1][4].setHSB( 0, null );
+            this.array.vitrum[2][3].setHSB( 0, null );
+            this.array.vitrum[2][4].setHSB( 4, null );
+            this.array.vitrum[3][0].setHSB( null, 5 );
+            this.array.vitrum[3][2].setHSB( 0, null );
+            this.array.vitrum[3][3].setHSB( 4, null );
+            this.array.vitrum[3][4].setHSB( null, 6 );
+            break;
+          case 9:
+            this.array.vitrum[0][0].setHSB( 2, null );
+            this.array.vitrum[0][1].setHSB( null, 6 );
+            this.array.vitrum[0][4].setHSB( 0, null );
+            this.array.vitrum[1][1].setHSB( null, 3 );
+            this.array.vitrum[1][2].setHSB( 2, null );
+            this.array.vitrum[2][1].setHSB( null, 5 );
+            this.array.vitrum[2][2].setHSB( null, 6 );
+            this.array.vitrum[2][3].setHSB( null, 2 );
+            this.array.vitrum[3][1].setHSB( null, 4 );
+            this.array.vitrum[3][3].setHSB( null, 1 );
+            this.array.vitrum[3][4].setHSB( 1, null );
+            break;
+          case 10:
+            this.array.vitrum[0][0].setHSB( 0, null );
+            this.array.vitrum[0][1].setHSB( 2, null );
+            this.array.vitrum[0][4].setHSB( null, 1 );
+            this.array.vitrum[1][0].setHSB( 1, null );
+            this.array.vitrum[1][2].setHSB( null, 5 );
+            this.array.vitrum[1][4].setHSB( null, 4 );
+            this.array.vitrum[2][0].setHSB( null, 3 );
+            this.array.vitrum[2][2].setHSB( 4, null );
+            this.array.vitrum[2][4].setHSB( 1, null );
+            this.array.vitrum[3][0].setHSB( null, 2 );
+            this.array.vitrum[3][3].setHSB( 2, null );
+            this.array.vitrum[3][4].setHSB( 0, null );
+            break;
         }
         break;
+      case 'B':
+       switch ( this.const.index ) {
+         case 0:
+           this.array.vitrum[0][2].setHSB( 4, null );
+           this.array.vitrum[0][3].setHSB( null, 5 );
+           this.array.vitrum[1][0].setHSB( 3, null );
+           this.array.vitrum[1][1].setHSB( null, 4 );
+           this.array.vitrum[1][3].setHSB( 1, null );
+           this.array.vitrum[1][4].setHSB( null, 3 );
+           this.array.vitrum[2][0].setHSB( null, 6 );
+           this.array.vitrum[2][3].setHSB( 2, null );
+           this.array.vitrum[3][1].setHSB( 0, null );
+           this.array.vitrum[3][2].setHSB( null, 2 );
+           break;
+         case 1:
+           this.array.vitrum[0][0].setHSB( null, 6 );
+           this.array.vitrum[0][1].setHSB( 3, null );
+           this.array.vitrum[0][4].setHSB( null, 5 );
+           this.array.vitrum[1][0].setHSB( null, 5 );
+           this.array.vitrum[1][2].setHSB( 3, null );
+           this.array.vitrum[2][0].setHSB( 4, null );
+           this.array.vitrum[2][1].setHSB( null, 6 );
+           this.array.vitrum[2][3].setHSB( 3, null );
+           this.array.vitrum[3][0].setHSB( 0, null );
+           this.array.vitrum[3][1].setHSB( 4, null );
+           this.array.vitrum[3][2].setHSB( null, 5 );
+           this.array.vitrum[3][3].setHSB( null, 4 );
+           this.array.vitrum[3][4].setHSB( null, 3 );
+           break;
+         case 2:
+           this.array.vitrum[0][0].setHSB( 4, null );
+           this.array.vitrum[0][2].setHSB( 2, null );
+           this.array.vitrum[0][4].setHSB( 0, null );
+           this.array.vitrum[1][0].setHSB( null, 4 );
+           this.array.vitrum[1][1].setHSB( 3, null );
+           this.array.vitrum[1][2].setHSB( null, 3 );
+           this.array.vitrum[1][3].setHSB( 1, null );
+           this.array.vitrum[1][4].setHSB( null, 2 );
+           this.array.vitrum[2][1].setHSB( null, 1 );
+           this.array.vitrum[2][3].setHSB( null, 5 );
+           this.array.vitrum[3][2].setHSB( null, 6 );
+           break;
+         case 3:
+           this.array.vitrum[0][0].setHSB( null, 5 );
+           this.array.vitrum[0][1].setHSB( 1, null );
+           this.array.vitrum[0][2].setHSB( 2, null );
+           this.array.vitrum[0][3].setHSB( 3, null );
+           this.array.vitrum[0][4].setHSB( null, 2 );
+           this.array.vitrum[1][0].setHSB( 3, null );
+           this.array.vitrum[1][4].setHSB( 0, null );
+           this.array.vitrum[2][0].setHSB( 0, null );
+           this.array.vitrum[2][2].setHSB( null, 6 );
+           this.array.vitrum[2][4].setHSB( 3, null );
+           this.array.vitrum[3][0].setHSB( null, 1 );
+           this.array.vitrum[3][3].setHSB( 1, null );
+           this.array.vitrum[3][4].setHSB( null, 4 );
+           break;
+         case 4:
+           this.array.vitrum[0][0].setHSB( null, 4 );
+           this.array.vitrum[0][2].setHSB( null, 2 );
+           this.array.vitrum[0][3].setHSB( null, 5 );
+           this.array.vitrum[0][4].setHSB( 1, null );
+           this.array.vitrum[1][2].setHSB( null, 6 );
+           this.array.vitrum[1][3].setHSB( 1, null );
+           this.array.vitrum[1][4].setHSB( null, 2 );
+           this.array.vitrum[2][1].setHSB( null, 3 );
+           this.array.vitrum[2][2].setHSB( 1, null );
+           this.array.vitrum[2][3].setHSB( null, 4 );
+           this.array.vitrum[3][0].setHSB( null, 5 );
+           this.array.vitrum[3][1].setHSB( 1, null );
+           this.array.vitrum[3][2].setHSB( null, 1 );
+           break;
+         case 5:
+           this.array.vitrum[0][3].setHSB( 4, null );
+           this.array.vitrum[0][4].setHSB( null, 5 );
+           this.array.vitrum[1][2].setHSB( 3, null );
+           this.array.vitrum[1][3].setHSB( null, 4 );
+           this.array.vitrum[1][4].setHSB( 2, null );
+           this.array.vitrum[2][1].setHSB( 2, null );
+           this.array.vitrum[2][2].setHSB( null, 3 );
+           this.array.vitrum[2][3].setHSB( 0, null );
+           this.array.vitrum[2][4].setHSB( null, 6 );
+           this.array.vitrum[3][0].setHSB( 0, null );
+           this.array.vitrum[3][1].setHSB( null, 2 );
+           this.array.vitrum[3][2].setHSB( 1, null );
+           this.array.vitrum[3][3].setHSB( null, 1 );
+           this.array.vitrum[3][4].setHSB( 4, null );
+           break;
+         case 6:
+           this.array.vitrum[0][0].setHSB( null, 1 );
+           this.array.vitrum[0][1].setHSB( 4, null );
+           this.array.vitrum[0][2].setHSB( null, 3 );
+           this.array.vitrum[0][4].setHSB( null, 6 );
+           this.array.vitrum[1][0].setHSB( null, 5 );
+           this.array.vitrum[1][1].setHSB( null, 4 );
+           this.array.vitrum[1][2].setHSB( 4, null );
+           this.array.vitrum[1][3].setHSB( null, 2 );
+           this.array.vitrum[2][2].setHSB( null, 5 );
+           this.array.vitrum[2][3].setHSB( 4, null );
+           this.array.vitrum[2][4].setHSB( null, 1 );
+           this.array.vitrum[3][3].setHSB( null, 3 );
+           this.array.vitrum[3][4].setHSB( 4, null );
+           break;
+         case 7:
+           this.array.vitrum[0][0].setHSB( null, 6 );
+           this.array.vitrum[0][1].setHSB( 2, null );
+           this.array.vitrum[0][4].setHSB( null, 1 );
+           this.array.vitrum[1][1].setHSB( null, 5 );
+           this.array.vitrum[1][2].setHSB( 2, null );
+           this.array.vitrum[2][0].setHSB( null, 4 );
+           this.array.vitrum[2][1].setHSB( 4, null );
+           this.array.vitrum[2][2].setHSB( null, 2 );
+           this.array.vitrum[2][3].setHSB( 2, null );
+           this.array.vitrum[3][0].setHSB( 1, null );
+           this.array.vitrum[3][1].setHSB( null, 6 );
+           this.array.vitrum[3][2].setHSB( 0, null );
+           this.array.vitrum[3][3].setHSB( null, 3 );
+           this.array.vitrum[3][4].setHSB( 3, null );
+           break;
+       }
+       break;
     }
+
+    /*
+      case :
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        this.array.vitrum[][].setHSB( null, null );
+        break;
+      */
   }
 
   setVisiable( visiable ){
