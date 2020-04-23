@@ -8,7 +8,7 @@ class player{
     this.array = {
       dot: [],
       hand: [ 0,0,0,0 ],
-      treasure: [],
+      treasure: [ 4 ], //,6,9,10,11,18
       destiny: [],
       curse: []
     };
@@ -66,9 +66,16 @@ class player{
 
       txt = "Curse";
       text( txt, this.data.offset.x + this.const.a*2, this.data.offset.y + this.const.a*4 + fontSize / 3 );
-      
+
       txt = "Treasure";
       text( txt, this.data.offset.x + this.const.a*2, this.data.offset.y + this.const.a*5.5 + fontSize / 3 );
+
+      for ( let i = 0; i < this.array.treasure.length; i++){
+        txt = this.array.treasure[i].toString();
+        text(  txt,
+          this.data.offset.x + this.const.a* 2 + fontSize * 1.375 * ( i - ( this.array.treasure.length - 1 ) / 2 ),
+          this.data.offset.y + this.const.a*6.125 + fontSize / 3 );
+      }
 
       for ( let i = 0; i < this.array.dot.length; i++){
         this.switchHue(i);
