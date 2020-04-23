@@ -1,15 +1,20 @@
-let squareSize = 25;
-let circleSize = squareSize / 5;
+let cellSize = 24;
+let daoNum = 9;
 let colorMax = 360;
 let colorBG = colorMax * 2 / 3;
+let colorButton = colorMax / 2;
 let infinity = 999999999;
 let fr = 60;
 let font;
-let fontSize = 16;//18
+let fontSize = 12;//18
 let canvasSize;
 let canvasGrid;
 let interfaceBoundaries;
 let gameBoard;
+let offset;
+let gameMap;
+let deltaTime = 1/fr;
+
 
 function preload() {
   font = loadFont('src/fonts/Chunkfive.otf');
@@ -18,28 +23,25 @@ function preload() {
 function setup() {
   canvasSize = createVector( 800, 700 );//800 600
   canvasGrid = createVector(
-    Math.floor( canvasSize.x / squareSize ),
-    Math.floor( canvasSize.y / squareSize ) );
+    Math.floor( canvasSize.x / cellSize ),
+    Math.floor( canvasSize.y / cellSize ) );
   createCanvas( canvasSize.x, canvasSize.y );
 
   textFont( font );
   textSize( fontSize );
   textAlign( CENTER );
-  strokeWeight( 5 / squareSize );
+  strokeWeight( 5 / cellSize );
 
   colorMode( HSB, colorMax );
   frameRate( fr );
 
-  offset = createVector( squareSize * 3, squareSize * 3 );
-
-  gameBoard = new board( offset );
+  gameMap = new map();
+  //fow = new fogOfWar();
 }
+
 
 function draw() {
   background( colorBG );
-  gameBoard.draw();
-}
-
-function mouseClicked() {
-  gameBoard.click();
+  gameMap.draw();
+  //fow.draw();
 }
